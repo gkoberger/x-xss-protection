@@ -9,12 +9,17 @@ The `X-XSS-Protection` HTTP header is a basic protection against XSS. It was ori
 
 This middleware sets the `X-XSS-Protection` header. On modern browsers, it will set the value to `1; mode=block`. On old versions of Internet Explorer, this creates a vulnerability (see [here](http://hackademix.net/2009/11/21/ies-xss-filter-creates-xss-vulnerabilities/) and [here](http://technet.microsoft.com/en-us/security/bulletin/MS10-002)), and so the header is set to `0` to disable it.
 
-To use this middleware:
+# Installation
+
+    npm install x-xss-protection --save
+    
+# Usage
 
 ```javascript
 var xssFilter = require('x-xss-protection')
 app.use(xssFilter())
 ```
+# setOnOldIE
 
 To force the header to be set to `1; mode=block` on all versions of IE, add the option:
 
